@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'interculturalité en contexte de formation professionnelle</title>
+    <style>
+        :root {
+            --primary-color: #3a6ea5;
+            --secondary-color: #004e89;
+            --accent-color: #ff6b35;
+            --light-color: #f0f4f8;
+            --dark-color: #333;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        
+        .subtitle {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 20px 0 10px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .quote {
+            background-color: var(--light-color);
+            padding: 15px;
+            border-left: 4px solid var(--accent-color);
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .quote-source {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .key-points {
+            background-color: rgba(58, 110, 165, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .key-points ul, .key-points ol {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .quiz-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-question {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .quiz-options label {
+            display: block;
+            padding: 8px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        
+        .quiz-options label:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .resource-list li {
+            margin-bottom: 10px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .feedback {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        
+        .correct {
+            background-color: rgba(40, 167, 69, 0.2);
+            border: 1px solid var(--success-color);
+        }
+        
+        .incorrect {
+            background-color: rgba(255, 107, 53, 0.2);
+            border: 1px solid var(--accent-color);
+        }
+        
+        .scenario {
+            background-color: rgba(0, 78, 137, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .scenario-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .reflection-box {
+            background-color: rgba(255, 107, 53, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px dashed var(--accent-color);
+        }
+        
+        .reflection-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: #ddd;
+            z-index: 1000;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: var(--accent-color);
+            width: 0;
+            transition: width 0.3s;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .image-caption {
+            font-style: italic;
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .back-to-top {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+        }
+        
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <header id="top">
+        <h1>L'interculturalité en contexte de formation professionnelle</h1>
+        <div class="subtitle">Module e-learning pour les enseignant-es groupes A & E (en remplacement du présentiel 17.03.25)</div>
+        <div class="date">Dao Mercier - Mars 2025</div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#objectifs">Objectifs</a></li>
+            <li><a href="#partie1">Dimensions de la diversité</a></li>
+            <li><a href="#partie2">Communication interculturelle</a></li>
+            <li><a href="#partie3">Pratiques inclusives</a></li>
+            <li><a href="#ressources">Ressources</a></li>
+            <li><a href="#quiz">Quiz final</a></li>
+        </ul>
+    </nav>
+
+    <section id="objectifs">
+        <h2>Objectifs du module</h2>
+        <p>Ce module e-learning a pour but de vous aider à :</p>
+        <div class="key-points">
+            <ul>
+                <li>Identifier les dimensions de la diversité culturelle et leurs impacts sur l'apprentissage technique</li>
+                <li>Comprendre l'influence des parcours migratoires sur les processus d'apprentissage</li>
+                <li>Développer des compétences en communication interculturelle adaptées au contexte de formation professionnelle</li>
+                <li>Acquérir des stratégies d'enseignement inclusives valorisant la diversité culturelle</li>
+            </ul>
+        </div>
+
+        <h3>Présentation du module</h3>
+        <p>Ce module est organisé en trois parties complémentaires :</p>
+        <div class="key-points">
+            <ul>
+                <li><strong>Dimensions de la diversité</strong> : Exploration des aspects visibles et invisibles de la diversité culturelle et leur impact en contexte de formation</li>
+                <li><strong>Communication interculturelle</strong> : Développement des compétences pour interagir efficacement dans un environnement multiculturel</li>
+                <li><strong>Stratégies d'enseignement inclusives</strong> : Découverte d'approches pédagogiques adaptées à la diversité culturelle</li>
+            </ul>
+        </div>
+        <p>Chaque partie comporte des éléments théoriques, des exemples concrets et des activités de réflexion pour vous aider à assimiler les concepts. Naviguez librement entre les différentes parties selon vos besoins et votre rythme d'apprentissage.</p>
+        
+        <a href="#top" class="back-to-top" title="Haut de page">↑</a>
+    </section>
+
+    <section id="partie1">
+        <h2>Partie 1 : Dimensions de la diversité</h2>
+        
+        <h3>Diversité visible et invisible</h3>
+        <p>La diversité culturelle présente de multiples dimensions qui vont bien au-delà des aspects immédiatement perceptibles. Pour mieux comprendre et valoriser cette diversité en contexte éducatif, il est essentiel de reconnaître à la fois les dimensions visibles et invisibles de la culture.</p>
+        
+        <div class="quote">
+            <p>"La culture est communication et la communication est culture."</p>
+            <div class="quote-source">- Edward T. Hall</div>
+        </div>
+        
+        <div class="image-container">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cdefs%3E%3ClinearGradient id='oceanGradient' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23a8d5ff;stop-opacity:0.8' /%3E%3Cstop offset='100%25' style='stop-color:%23004e89;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='600' height='600' fill='%23f5f5f5' /%3E%3Ctext x='300' y='35' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='%233a6ea5'%3EDIMENSIONS DE LA DIVERSITÉ CULTURELLE%3C/text%3E%3Crect x='50' y='200' width='500' height='350' fill='url(%23oceanGradient)' /%3E%3Cpath d='M50,200 L300,100 L550,200' fill='%23fff' stroke='%233a6ea5' stroke-width='2' /%3E%3Cpath d='M50,200 L300,125 L550,200' fill='%23fff' stroke='none' /%3E%3Cline x1='300' y1='100' x2='300' y2='550' stroke='%233a6ea5' stroke-width='1' stroke-dasharray='5,5' /%3E%3Ctext x='300' y='80' text-anchor='middle' font-family='Arial' font-size='18' font-weight='bold' fill='%23333'%3EVISIBLE%3C/text%3E%3Ctext x='150' y='175' text-anchor='middle' font-family='Arial' font-size='14' fill='%23333'%3ELangue%3C/text%3E%3Ctext x='450' y='175' text-anchor='middle' font-family='Arial' font-size='14' fill='%23333'%3EApparence physique%3C/text%3E%3Ctext x='220' y='155' text-anchor='middle' font-family='Arial' font-size='14' fill='%23333'%3EAccent%3C/text%3E%3Ctext x='380' y='155' text-anchor='middle' font-family='Arial' font-size='14' fill='%23333'%3ETraits ethniques%3C/text%3E%3Ctext x='300' y='300' text-anchor='middle' font-family='Arial' font-size='18' font-weight='bold' fill='white'%3EINVISIBLE%3C/text%3E%3Ctext x='200' y='250' text-anchor='middle' font-family='Arial' font-size='14' fill='white'%3EVisions du monde%3C/text%3E%3Ctext x='400' y='250' text-anchor='middle' font-family='Arial' font-size='14' fill='white'%3EValeurs%3C/text%3E%3Ctext x='300' y='350' text-anchor='middle' font-family='Arial' font-size='14' fill='white'%3EAttitudes face à l'autorité%3C/text%3E%3Ctext x='300' y='380' text-anchor='middle' font-family='Arial' font-size='14' fill='white'%3EConceptions du temps%3C/text%3E%3Ctext x='300' y='410' text-anchor='middle' font-family='Arial' font-size='14' fill='white'%3EStyles d'apprentissage%3C/text%3E%3Ctext x='200' y='450' text-anchor='middle' font-family='Arial' font-size='14' fill='white'%3ECroyances%3C/text%3E%3Ctext x='400' y='450' text-anchor='middle' font-family='Arial' font-size='14' fill='white'%3ENormes sociales%3C/text%3E%3Ctext x='300' y='480' text-anchor='middle' font-family='Arial' font-size='14' fill='white'%3EHistoire personnelle%3C/text%3E%3Ctext x='300' y='510' text-anchor='middle' font-family='Arial' font-size='14' fill='white'%3ETraumas%3C/text%3E%3Ctext x='300' y='575' text-anchor='middle' font-family='Arial' font-size='12' font-style='italic' fill='%23666'%3EInspirée par le modèle de l'iceberg culturel d'Edward T. Hall%3C/text%3E%3C/svg%3E" alt="Représentation schématique des dimensions visibles et invisibles de la diversité culturelle">
+            <div class="image-caption">Le modèle de l'iceberg culturel : les dimensions visibles ne représentent qu'une petite partie de la diversité culturelle</div>
+        </div>
+        
+        <div class="key-points">
+            <h3>Points clés</h3>
+            <ul>
+                <li><strong>Dimensions visibles</strong> : Langue, apparence physique, accent, tenue vestimentaire, comportements observables</li>
+                <li><strong>Dimensions invisibles</strong> : Valeurs, croyances, conceptions du temps, styles d'apprentissage, rapport à l'autorité, normes sociales</li>
+                <li>Les dimensions invisibles ont souvent un impact plus profond sur l'apprentissage que les dimensions visibles</li>
+                <li>La reconnaissance de ces dimensions permet d'éviter les interprétations erronées des comportements</li>
+            </ul>
+        </div>
+        
+        <h3>Impact de la diversité culturelle en contexte de formation professionnelle</h3>
+        <p>Les dimensions culturelles influencent considérablement de nombreux aspects de l'apprentissage en contexte professionnel :</p>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Dimension culturelle</th>
+                <th>Impact potentiel en formation professionnelle</th>
+            </tr>
+            <tr>
+                <td>Rapport au temps (monochronique/polychronique)</td>
+                <td>Ponctualité, gestion des délais, priorités dans les tâches, organisation du travail</td>
+            </tr>
+            <tr>
+                <td>Rapport à l'autorité (hiérarchique/égalitaire)</td>
+                <td>Expression des désaccords, prise d'initiative, demande d'aide, questionnement des instructions</td>
+            </tr>
+            <tr>
+                <td>Communication (directe/indirecte)</td>
+                <td>Interprétation des consignes, formulation des questions, expression des difficultés</td>
+            </tr>
+            <tr>
+                <td>Mode d'apprentissage (observation/expérimentation)</td>
+                <td>Préférence pour les démonstrations ou l'apprentissage par essai-erreur</td>
+            </tr>
+            <tr>
+                <td>Orientation individualiste/collectiviste</td>
+                <td>Travail en équipe, partage des ressources, entraide, compétition</td>
+            </tr>
+        </table>
+        
+        <h3>Concepts-clés interconnectés</h3>
+        <p>Pour saisir pleinement les enjeux de l'interculturalité en formation professionnelle, il est important de comprendre l'interconnexion entre plusieurs concepts fondamentaux :</p>
+        
+        <div class="key-points">
+            <ul>
+                <li><strong>Culture</strong> : Ensemble des façons de penser, de sentir et d'agir apprises et partagées par un groupe, qui influencent la perception du monde et les comportements</li>
+                <li><strong>Identité culturelle</strong> : Sentiment d'appartenance à des groupes culturels qui façonne la perception de soi</li>
+                <li><strong>Altérité</strong> : Reconnaissance de l'autre dans sa différence et sa spécificité</li>
+                <li><strong>Ethnocentrisme</strong> : Tendance à considérer sa propre culture comme référence pour juger les autres cultures</li>
+                <li><strong>Stéréotypes et préjugés</strong> : Généralisations simplifiées et jugements préconçus sur un groupe culturel</li>
+            </ul>
+        </div>
+        
+        <div class="scenario">
+            <div class="scenario-title">Cas concret : L'atelier technique multiculturel</div>
+            <p>Un formateur en mécanique automobile dans une école professionnelle doit gérer un atelier pratique avec 12 apprentis dont :</p>
+            <ul>
+                <li>4 sont issus de cultures où on ne contredit jamais l'autorité</li>
+                <li>3 viennent de contextes où l'apprentissage se fait par observation silencieuse</li>
+                <li>5 sont habitués à poser des questions et à signaler immédiatement les difficultés</li>
+            </ul>
+            <p>Lors d'une démonstration technique complexe, le formateur remarque que certains apprentis ne suivent pas correctement les étapes mais ne disent rien. D'autres posent de nombreuses questions qui ralentissent la séance. Quand il demande "Est-ce que tout le monde a compris?", tous hochent la tête, mais lors de la mise en pratique, plusieurs ne parviennent pas à reproduire la technique.</p>
+        </div>
+        
+        <div class="reflection-box">
+            <div class="reflection-question">Réflexion :</div>
+            <p>Dans le cas présenté ci-dessus, quelles dimensions culturelles invisibles pourraient expliquer les difficultés rencontrées ? Comment le formateur pourrait-il adapter son approche pour tenir compte de cette diversité ?</p>
+        </div>
+        
+        <h3>Impact des parcours migratoires sur l'apprentissage</h3>
+        <p>Les parcours migratoires créent des expériences spécifiques qui peuvent influencer considérablement les processus d'apprentissage en contexte professionnel :</p>
+        
+        <div class="key-points">
+            <ul>
+                <li><strong>Traumatismes et ruptures</strong> : Impacts sur la concentration, la mémoire, la motivation</li>
+                <li><strong>Statut légal et administratif</strong> : Précarité, incertitude, stress</li>
+                <li><strong>Discontinuité éducative</strong> : Lacunes, différences de méthodes et contenus entre pays</li>
+                <li><strong>Défis linguistiques</strong> : Apprentissage simultané de la langue et des contenus techniques</li>
+                <li><strong>Conflits de loyauté</strong> : Tensions entre culture d'origine et culture professionnelle</li>
+                <li><strong>Non-reconnaissance des qualifications</strong> : Dévalorisation des compétences acquises ailleurs</li>
+            </ul>
+        </div>
+        
+        <div class="quiz-container">
+            <div class="quiz-question">
+                <p><strong>Mini-quiz - Dimensions de la diversité</strong></p>
+                <p>Parmi les éléments suivants, lequel représente une dimension invisible de la diversité culturelle qui influence l'apprentissage ?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q1" value="a"> L'accent et la prononciation</label>
+                    <label><input type="radio" name="q1" value="b"> La conception du rapport à l'autorité</label>
+                    <label><input type="radio" name="q1" value="c"> La tenue vestimentaire traditionnelle</label>
+                </div>
+                <div class="feedback hidden" id="feedback1"></div>
+            </div>
+            <button class="btn" onclick="checkAnswer(1, 'b')">Vérifier ma réponse</button>
+        </div>
+        
+        <a href="#top" class="back-to-top" title="Haut de page">↑</a>
+    </section>
+
+    <section id="partie2">
+        <h2>Partie 2 : Communication interculturelle</h2>
+        
+        <h3>Compétences en communication interculturelle</h3>
+        <p>La communication interculturelle en contexte de formation professionnelle requiert des compétences spécifiques qui permettent de surmonter les barrières culturelles et de créer un environnement d'apprentissage efficace.</p>
+        
+        <div class="key-points">
+            <h3>Compétences essentielles</h3>
+            <ul>
+                <li><strong>Conscience de son propre cadre culturel</strong> : Reconnaître l'influence de sa propre culture sur sa façon d'enseigner et de communiquer</li>
+                <li><strong>Décentration</strong> : Capacité à se distancier de ses propres références pour comprendre celles des autres</li>
+                <li><strong>Tolérance à l'ambiguïté</strong> : Accepter les situations incertaines ou ambiguës sans frustration excessive</li>
+                <li><strong>Écoute active interculturelle</strong> : Porter attention aux messages verbaux et non-verbaux en tenant compte des filtres culturels</li>
+                <li><strong>Métacommunication</strong> : Capacité à parler de la façon dont on communique pour clarifier les malentendus</li>
+                <li><strong>Adaptation du style communicatif</strong> : Flexibilité pour ajuster sa communication selon les besoins des interlocuteurs</li>
+            </ul>
+        </div>
+        
+        <h3>Déconstruire les stéréotypes en contexte scolaire</h3>
+        <p>Les stéréotypes culturels peuvent sérieusement entraver la communication et l'apprentissage. Leur déconstruction est essentielle pour une communication interculturelle efficace :</p>
+        
+        <div class="key-points">
+            <ol>
+                <li><strong>Identifier les stéréotypes</strong> : Reconnaître nos propres généralisations sur les cultures</li>
+                <li><strong>Chercher la complexité</strong> : Explorer la diversité interne à chaque culture plutôt que les simplifications</li>
+                <li><strong>Contextualiser les comportements</strong> : Comprendre les actions dans leur contexte culturel spécifique</li>
+                <li><strong>Individualiser les interactions</strong> : Considérer chaque apprenant comme une personne unique, au-delà de son appartenance culturelle</li>
+                <li><strong>Favoriser les échanges directs</strong> : Créer des occasions d'interaction authentique entre personnes de cultures différentes</li>
+            </ol>
+        </div>
+        
+        <div class="scenario">
+            <div class="scenario-title">Exemple de stéréotype et sa déconstruction</div>
+            <p><strong>Stéréotype</strong> : "Les apprenants asiatiques sont silencieux et passifs en classe."</p>
+            <p><strong>Déconstruction</strong> :</p>
+            <ul>
+                <li>Cette généralisation ignore l'immense diversité des cultures asiatiques</li>
+                <li>Ce qui peut être perçu comme passivité peut refléter des valeurs culturelles de respect envers l'enseignant</li>
+                <li>Le silence peut être une phase d'observation active, une stratégie d'apprentissage valorisée</li>
+                <li>Des facteurs individuels (personnalité, expérience) influencent davantage la participation que la seule origine culturelle</li>
+                <li>En créant un environnement sécurisant et en variant les modes de participation, ces mêmes apprenants peuvent se montrer très engagés</li>
+            </ul>
+        </div>
+        
+        <h3>Stratégies pour une communication interculturelle efficace</h3>
+        <p>Pour favoriser une communication interculturelle efficace en contexte de formation professionnelle, voici des stratégies concrètes :</p>
+        
+        <div class="key-points">
+            <ol>
+                <li><strong>Clarifier explicitement les codes de communication</strong> : Expliquer vos attentes en matière de participation, questions, feedback, et les raisons qui les sous-tendent</li>
+                <li><strong>Diversifier les canaux de communication</strong> : Combiner communication orale, écrite, visuelle et démonstrations pratiques</li>
+                <li><strong>Pratiquer la vérification de compréhension</strong> : Utiliser des techniques autres que "Avez-vous compris?" (qui génère souvent des acquiescements par politesse)</li>
+                <li><strong>Adapter le niveau de directivité</strong> : Moduler entre instructions précises et autonomie selon les besoins des apprenants</li>
+                <li><strong>Créer des espaces de communication sécurisants</strong> : Permettre différentes formes d'expression des questions et difficultés</li>
+                <li><strong>Développer un métalangage professionnel</strong> : Construire un vocabulaire technique commun, explicité et contextuel</li>
+            </ol>
+        </div>
+        
+        <div class="reflection-box">
+            <div class="reflection-question">Réflexion :</div>
+            <p>Pensez à une situation récente où vous avez rencontré un malentendu interculturel dans votre pratique professionnelle. Quelle compétence de communication interculturelle aurait pu vous aider à prévenir ou résoudre ce malentendu ? Comment pourriez-vous développer cette compétence ?</p>
+        </div>
+        
+        <div class="quiz-container">
+            <div class="quiz-question">
+                <p><strong>Mini-quiz - Communication interculturelle</strong></p>
+                <p>Quelle stratégie est la plus appropriée pour vérifier la compréhension dans un groupe multiculturel ?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q2" value="a"> Demander "Est-ce que tout le monde a compris?" et considérer un hochement de tête comme confirmation</label>
+                    <label><input type="radio" name="q2" value="b"> Demander aux apprenants de reformuler les consignes ou de faire une démonstration pratique de leur compréhension</label>
+                    <label><input type="radio" name="q2" value="c"> Répéter plusieurs fois la même explication de la même façon mais plus lentement</label>
+                </div>
+                <div class="feedback hidden" id="feedback2"></div>
+            </div>
+            <button class="btn" onclick="checkAnswer(2, 'b')">Vérifier ma réponse</button>
+        </div>
+        
+        <a href="#top" class="back-to-top" title="Haut de page">↑</a>
+    </section>
+
+    <section id="partie3">
+        <h2>Partie 3 : Stratégies d'enseignement inclusives</h2>
+        
+        <h3>Principes de l'enseignement inclusif en contexte interculturel</h3>
+        <p>L'enseignement inclusif en contexte interculturel repose sur des principes fondamentaux qui permettent de valoriser la diversité culturelle comme une ressource pédagogique :</p>
+        
+        <div class="key-points">
+            <ul>
+                <li><strong>Équité</strong> : Offrir à chacun ce dont il a besoin pour réussir, ce qui implique parfois des traitements différenciés</li>
+                <li><strong>Reconnaissance</strong> : Valoriser explicitement les différentes perspectives culturelles et expériences</li>
+                <li><strong>Adaptabilité</strong> : Flexibilité dans les approches pédagogiques pour répondre à la diversité des besoins</li>
+                <li><strong>Explicitation</strong> : Rendre visibles les codes implicites du milieu professionnel et éducatif</li>
+                <li><strong>Participation</strong> : Créer des conditions pour une implication active de tous les apprenants</li>
+                <li><strong>Empowerment</strong> : Développer l'autonomie et la confiance des apprenants dans leur diversité</li>
+            </ul>
+        </div>
+        
+        <h3>Stratégies d'enseignement inclusives</h3>
+        <p>Voici des stratégies concrètes pour mettre en œuvre un enseignement inclusif en contexte de formation professionnelle multiculturelle :</p>
+        
+        <div class="key-points">
+            <ol>
+                <li><strong>Conception universelle de l'apprentissage</strong>
+                    <ul>
+                        <li>Proposer multiple moyens d'engagement pour motiver tous les apprenants</li>
+                        <li>Offrir multiple moyens de représentation des contenus (oral, écrit, visuel, pratique)</li>
+                        <li>Permettre multiple moyens d'action et d'expression des apprentissages</li>
+                    </ul>
+                </li>
+                <li><strong>Contextualisation culturelle des apprentissages</strong>
+                    <ul>
+                        <li>Relier les nouveaux savoirs techniques aux référents culturels des apprenants</li>
+                        <li>Utiliser des exemples professionnels diversifiés culturellement</li>
+                        <li>Montrer la pertinence des apprentissages dans différents contextes culturels</li>
+                    </ul>
+                </li>
+                <li><strong>Différenciation pédagogique</strong>
+                    <ul>
+                        <li>Adapter les consignes et le soutien selon les besoins spécifiques</li>
+                        <li>Proposer des parcours flexibles vers les mêmes objectifs professionnels</li>
+                        <li>Varier les modalités d'évaluation pour permettre l'expression des compétences</li>
+                    </ul>
+                </li>
+                <li><strong>Apprentissage coopératif interculturel</strong>
+                    <ul>
+                        <li>Structurer des groupes culturellement mixtes avec des rôles précis</li>
+                        <li>Créer des tâches qui valorisent la diversité des perspectives</li>
+                        <li>Enseigner explicitement les compétences de collaboration interculturelle</li>
+                    </ul>
+                </li>
+                <li><strong>Médiations linguistiques et culturelles</strong>
+                    <ul>
+                        <li>Utiliser des supports visuels pour compléter les explications verbales</li>
+                        <li>Autoriser stratégiquement l'usage de la langue maternelle comme ressource</li>
+                        <li>Expliciter les références culturelles implicites dans les situations professionnelles</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        
+        <div class="scenario">
+            <div class="scenario-title">Cas concret : Approche inclusive en formation professionnelle</div>
+            <p>Une formatrice en soins infirmiers travaille avec un groupe multiculturel d'apprenants. Pour enseigner les techniques de communication avec les patients, elle met en place une approche inclusive :</p>
+            
+            <p><strong>1. Reconnaissance des diverses conceptions culturelles</strong></p>
+            <ul>
+                <li>Elle commence par une activité où chacun partage comment la relation soignant-patient est conçue dans sa culture d'origine</li>
+                <li>Les différentes perspectives sont valorisées et synthétisées visuellement</li>
+            </ul>
+            
+            <p><strong>2. Explicitation des attentes professionnelles locales</strong></p>
+            <ul>
+                <li>Elle présente clairement les standards attendus dans le contexte local tout en expliquant leur fondement</li>
+                <li>Elle identifie avec le groupe les possibles tensions avec certaines conceptions culturelles</li>
+            </ul>
+            
+            <p><strong>3. Apprentissage différencié</strong></p>
+            <ul>
+                <li>Elle propose des démonstrations visuelles des techniques de communication</li>
+                <li>Les apprenants peuvent s'entraîner en petits groupes interculturels</li>
+                <li>Elle offre des ressources supplémentaires pour ceux qui ont besoin de plus de pratique</li>
+            </ul>
+            
+            <p><strong>4. Évaluation inclusive</strong></p>
+            <ul>
+                <li>L'évaluation combine une grille objective des compétences techniques et un espace de réflexion sur l'adaptation culturelle</li>
+                <li>Les apprenants peuvent démontrer leur maîtrise via des jeux de rôle ou des études de cas, selon leur préférence</li>
+            </ul>
+        </div>
+        
+        <div class="reflection-box">
+            <div class="reflection-question">Réflexion :</div>
+            <p>Parmi les stratégies d'enseignement inclusives présentées, laquelle vous semble la plus pertinente pour votre contexte spécifique de formation ? Quelles adaptations seraient nécessaires pour l'intégrer efficacement dans votre pratique ?</p>
+        </div>
+        
+        <div class="quiz-container">
+            <div class="quiz-question">
+                <p><strong>Mini-quiz - Stratégies d'enseignement inclusives</strong></p>
+                <p>Laquelle de ces affirmations représente le mieux l'approche de la conception universelle de l'apprentissage ?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q3" value="a"> Simplifier systématiquement le contenu pour les apprenants de cultures différentes</label>
+                    <label><input type="radio" name="q3" value="b"> Proposer différentes façons d'accéder au contenu, de s'engager et d'exprimer ses apprentissages</label>
+                    <label><input type="radio" name="q3" value="c"> Adapter le curriculum pour chaque apprenant individuellement</label>
+                </div>
+                <div class="feedback hidden" id="feedback3"></div>
+            </div>
+            <button class="btn" onclick="checkAnswer(3, 'b')">Vérifier ma réponse</button>
+        </div>
+        
+        <a href="#top" class="back-to-top" title="Haut de page">↑</a>
+    </section>
+
+    <section id="ressources">
+        <h2>Ressources complémentaires</h2>
+        
+        <h3>Lectures recommandées</h3>
+        <ul class="resource-list">
+            <li>Messaoudi, A. (2021). <em>Les mots indispensables pour parler du racisme</em>. Paris: Syros.</li>
+            <li>Abdallah-Pretceille, M. (2017). <em>Pédagogie interculturelle</em>. Paris: PUF.</li>
+            <li>Akkari, M. (2016). <em>L'éducation interculturelle</em>. Paris: PUF.</li>
+            <li>Deschenes, G. (2019). <em>99 questions sur... l'éducation à la diversité ethnoculturelle</em>. Québec: Presses de l'Université Laval.</li>
+            <li>Chiss, R. (2018). <em>Apprendre ensemble avec des élèves allophones</em>. Paris: ESF.</li>
+        </ul>
+        
+        <h3>Webographie</h3>
+        <ul class="resource-list">
+            <li><a href="https://www.international.gc.ca/global-affairs-affaires-mondiales/services/cfsi-icse/programs-programmes/intercultural-glossary-glossaire-interculturelle.aspx?lang=fra" target="_blank">Glossaire des compétences interculturelles - Affaires mondiales Canada</a></li>
+            <li><a href="https://www.supagro.fr/wordpress/initiativespedagogiques/2018/01/29/le-jeu-des-derdians-un-jeu-de-role-sur-linterculturalite-en-milieu-professionnel/" target="_blank">Le jeu des Derdians : un jeu de rôle sur l'interculturalité en milieu professionnel</a></li>
+            <li><a href="https://ecampusontario.pressbooks.pub/competencesinterculturelles/chapter/what-is-culture-3/" target="_blank">Compétences interculturelles - eCampus Ontario</a></li>
+        </ul>
+        
+        <h3>Outils pratiques</h3>
+        <ul class="resource-list">
+            <li>Grille d'observation des interactions interculturelles en classe</li>
+            <li>Guide pour l'animation de discussions interculturelles</li>
+            <li>Répertoire d'activités brise-glace interculturelles</li>
+            <li>Fiches de médiation linguistique et culturelle pour différents métiers</li>
+        </ul>
+        
+        <a href="#top" class="back-to-top" title="Haut de page">↑</a>
+    </section>
+
+    <section id="quiz">
+        <h2>Quiz final</h2>
+        <p>Testez vos connaissances sur l'interculturalité en contexte de formation professionnelle avec ce quiz.</p>
+        
+        <div class="quiz-container">
+            <div class="quiz-question">
+                <p><strong>1. Parmi ces éléments, lequel représente une dimension invisible de la diversité culturelle ?</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q4" value="a"> L'accent et la prononciation</label>
+                    <label><input type="radio" name="q4" value="b"> Les attitudes face à l'autorité</label>
+                    <label><input type="radio" name="q4" value="c"> La tenue vestimentaire traditionnelle</label>
+                </div>
+                <div class="feedback hidden" id="feedback4"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <p><strong>2. L'impact du parcours migratoire sur l'apprentissage peut inclure :</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q5" value="a"> Uniquement des difficultés linguistiques</label>
+                    <label><input type="radio" name="q5" value="b"> Des traumatismes, des discontinuités éducatives, des défis linguistiques et des conflits de loyauté</label>
+                    <label><input type="radio" name="q5" value="c"> Aucun impact significatif si l'enseignant est compétent</label>
+                </div>
+                <div class="feedback hidden" id="feedback5"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <p><strong>3. La décentration culturelle consiste à :</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q6" value="a"> Ignorer les différences culturelles pour traiter tout le monde de la même façon</label>
+                    <label><input type="radio" name="q6" value="b"> Se distancier de ses propres références pour comprendre celles des autres</label>
+                    <label><input type="radio" name="q6" value="c"> Imposer sa culture comme norme de référence</label>
+                </div>
+                <div class="feedback hidden" id="feedback6"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <p><strong>4. Pour déconstruire un stéréotype culturel en contexte de formation, il est recommandé de :</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q7" value="a"> Éviter complètement de mentionner les différences culturelles</label>
+                    <label><input type="radio" name="q7" value="b"> Explorer la diversité interne à chaque culture et individualiser les interactions</label>
+                    <label><input type="radio" name="q7" value="c"> Regrouper les apprenants par origine culturelle pour éviter les malentendus</label>
+                </div>
+                <div class="feedback hidden" id="feedback7"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <p><strong>5. Quelle stratégie de communication interculturelle est la plus efficace pour vérifier la compréhension ?</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q8" value="a"> Demander "Avez-vous compris ?" et attendre un hochement de tête</label>
+                    <label><input type="radio" name="q8" value="b"> Demander aux apprenants de reformuler ou de démontrer leur compréhension</label>
+                    <label><input type="radio" name="q8" value="c"> Répéter les mêmes explications plus lentement</label>
+                </div>
+                <div class="feedback hidden" id="feedback8"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <p><strong>6. Dans l'approche inclusive de l'enseignement, l'équité signifie :</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q9" value="a"> Traiter tous les apprenants exactement de la même façon</label>
+                    <label><input type="radio" name="q9" value="b"> Offrir à chacun ce dont il a besoin pour réussir, ce qui implique parfois des traitements différenciés</label>
+                    <label><input type="radio" name="q9" value="c"> Simplifier systématiquement le contenu pour les apprenants de cultures différentes</label>
+                </div>
+                <div class="feedback hidden" id="feedback9"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <p><strong>7. La conception universelle de l'apprentissage en contexte interculturel consiste à :</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q10" value="a"> Proposer différentes façons d'accéder au contenu, de s'engager et d'exprimer ses apprentissages</label>
+                    <label><input type="radio" name="q10" value="b"> Créer un programme uniforme qui convient à tous les apprenants</label>
+                    <label><input type="radio" name="q10" value="c"> Adapter entièrement le curriculum pour chaque culture représentée</label>
+                </div>
+                <div class="feedback hidden" id="feedback10"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <p><strong>8. L'apprentissage coopératif interculturel est plus efficace quand :</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q11" value="a"> Les apprenants sont regroupés par origine culturelle</label>
+                    <label><input type="radio" name="q11" value="b"> Les groupes sont culturellement mixtes et les rôles clairement définis</label>
+                    <label><input type="radio" name="q11" value="c"> Le travail individuel est privilégié pour éviter les conflits</label>
+                </div>
+                <div class="feedback hidden" id="feedback11"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <p><strong>9. La médiation linguistique et culturelle peut inclure :</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q12" value="a"> L'utilisation exclusive de la langue d'enseignement</label>
+                    <label><input type="radio" name="q12" value="b"> L'autorisation stratégique de l'usage de la langue maternelle comme ressource</label>
+                    <label><input type="radio" name="q12" value="c"> La traduction systématique de tous les contenus</label>
+                </div>
+                <div class="feedback hidden" id="feedback12"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <p><strong>10. Une approche interculturelle réussie en formation professionnelle :</strong></p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q13" value="a"> Élimine toutes les différences culturelles pour créer un environnement neutre</label>
+                    <label><input type="radio" name="q13" value="b"> Transforme la diversité culturelle en ressource d'apprentissage et développe les compétences interculturelles de tous</label>
+                    <label><input type="radio" name="q13" value="c"> Se concentre uniquement sur les aspects culturels au détriment des objectifs professionnels</label>
+                </div>
+                <div class="feedback hidden" id="feedback13"></div>
+            </div>
+            
+            <button class="btn" onclick="checkQuiz()">Vérifier toutes mes réponses</button>
+            <div id="quizResults" class="hidden" style="margin-top: 20px; padding: 15px; background-color: #f0f4f8; border-radius: 8px;"></div>
+        </div>
+        
+        <a href="#top" class="back-to-top" title="Haut de page">↑</a>
+    </section>
+
+    <section>
+        <h2>Plan d'action personnel</h2>
+        <p>Pour conclure ce module, prenez quelques minutes pour définir une action concrète que vous pourriez mettre en œuvre dès demain dans votre pratique.</p>
+        
+        <div class="reflection-box">
+            <div class="reflection-question">Dès demain, je...</div>
+            <p>Identifiez une action concrète et réalisable pour favoriser l'interculturalité dans votre contexte d'enseignement. Par exemple :</p>
+            <ul>
+                <li>Intégrer un moment d'échange sur les différentes façons d'apprendre selon les cultures</li>
+                <li>Adapter une activité pour permettre différents modes d'expression</li>
+                <li>Expliciter un code implicite important dans votre discipline</li>
+                <li>Diversifier vos exemples pour inclure différentes références culturelles</li>
+            </ul>
+            <p>Cette réflexion personnelle est pour vous - prenez le temps de noter votre idée et de réfléchir à sa mise en œuvre concrète.</p>
+        </div>
+        
+        <a href="#top" class="back-to-top" title="Haut de page">↑</a>
+    </section>
+
+    <script>
+        // Function to check individual answers in the mini-quizzes
+        function checkAnswer(questionNumber, correctAnswer) {
+            const selectedOption = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+            const feedbackElement = document.getElementById(`feedback${questionNumber}`);
+            
+            if (!selectedOption) {
+                feedbackElement.textContent = "Veuillez sélectionner une réponse.";
+                feedbackElement.className = "feedback";
+                feedbackElement.classList.remove("hidden");
+                return;
+            }
+            
+            if (selectedOption.value === correctAnswer) {
+                feedbackElement.textContent = "Correct ! Bonne réponse.";
+                feedbackElement.className = "feedback correct";
+            } else {
+                feedbackElement.textContent = "Incorrect. Essayez à nouveau.";
+                feedbackElement.className = "feedback incorrect";
+            }
+            
+            feedbackElement.classList.remove("hidden");
+        }
+        
+        // Function to check all answers in the final quiz
+        function checkQuiz() {
+            const correctAnswers = {
+                q4: "b",
+                q5: "b",
+                q6: "b",
+                q7: "b",
+                q8: "b",
+                q9: "b",
+                q10: "a",
+                q11: "b",
+                q12: "b",
+                q13: "b"
+            };
+            
+            let score = 0;
+            let feedback = "";
+            
+            for (let i = 4; i <= 13; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                const feedbackElement = document.getElementById(`feedback${i}`);
+                
+                if (selectedOption) {
+                    if (selectedOption.value === correctAnswers[`q${i}`]) {
+                        feedbackElement.textContent = "Correct !";
+                        feedbackElement.className = "feedback correct";
+                        score++;
+                    } else {
+                        feedbackElement.textContent = "Incorrect.";
+                        feedbackElement.className = "feedback incorrect";
+                    }
+                    feedbackElement.classList.remove("hidden");
+                } else {
+                    feedbackElement.textContent = "Question non répondue.";
+                    feedbackElement.className = "feedback";
+                    feedbackElement.classList.remove("hidden");
+                }
+            }
+            
+            const resultsElement = document.getElementById("quizResults");
+            resultsElement.innerHTML = `
+                <h3>Résultats du quiz</h3>
+                <p>Votre score : ${score}/10</p>
+                <p>${getScoreFeedback(score)}</p>
+            `;
+            resultsElement.classList.remove("hidden");
+            
+            // Scroll to the results
+            resultsElement.scrollIntoView({ behavior: "smooth" });
+        }
+        
+        function getScoreFeedback(score) {
+            if (score >= 9) {
+                return "Excellent ! Vous avez une très bonne compréhension des concepts liés à l'interculturalité dans la formation professionnelle.";
+            } else if (score >= 7) {
+                return "Bon travail ! Vous maîtrisez bien les principes de base de l'interculturalité en contexte de formation.";
+            } else if (score >= 5) {
+                return "Vous avez assimilé certains concepts clés, mais certains aspects méritent d'être approfondis.";
+            } else {
+                return "Nous vous suggérons de revoir les différentes parties du module pour renforcer votre compréhension des concepts.";
+            }
+        }
+        
+        // Progress bar functionality
+        window.onscroll = function() {updateProgressBar()};
+        
+        function updateProgressBar() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .back-to-top').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
